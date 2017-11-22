@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container">
+			    
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="index.html">粮仓</a>
+			    </div>
+			
+			    
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品分类<span class="caret"></span></a>
+			          <ul class="dropdown-menu" id="goods_class">
+			            <li><a href="#">内容1</a></li>
+			            <li><a href="#">内容2</a></li>
+			            <li><a href="#">内容3</a></li>
+			           
+			          </ul>
+			        </li>
+
+			        
+			      </ul>
+			      <form class="navbar-form navbar-left">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="搜索内容">
+			        </div>
+			        <button type="button" class="btn btn-default">搜索</button>
+			      </form>
+			      <ul class="nav navbar-nav navbar-right">
+			      	<li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">购物车<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            
+			            <!--<li role="separator" class="divider"></li>-->
+			            <li><a href="#">还没有登录</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">没有内容</a></li>
+			          </ul>
+			        </li>
+			      	
+			        <li><a href="login.html">登录</a></li>
+			        <li><a href="register.html">注册</a></li>
+			      
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+
+		
+		<!--商品展示-->
+		<div class="container">
+			<div class="row">
+				<div class="goods">
+				
+				<div class="col-sm-6 col-md-4 col-lg-3">
+				    <div class="thumbnail">
+				      <img src="" alt="...">
+				      <div class="caption">
+				        <h3>商品名称：路飞</h3>
+				        <p>橡皮人</p>
+				        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+				      </div>
+				    </div>  
+				</div>	
+				
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		
+		
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script>
+	var url = "http://h6.duchengjiu.top/shop/api_goods.php"
+	var data = {"page":1,"pagesize":18}
+	$.get(url,data,function(obj){
+		console.log(obj)
+		var arr = obj.data
+		var h = ""
+		for(var i = 0;i<arr.length;i++){
+			h+='<div class="col-sm-6 col-md-4 col-lg-3"><div class="thumbnail goods_img"><img class="" src="'+arr[i].goods_thumb+'" alt="..."><div class="caption"><h3 class="h3-buhuanhang">'+ arr[i].goods_name +'</h3><p>￥'+ arr[i].price +'</p><p><a href="goods.html?goods_id='+ arr[i].goods_id +'" class="btn btn-primary" role="button">购买</a><a href="#" class="btn-shop btn btn-primary" role="button">加入购物车</a></p> </div></div></div>'	        
+//			h+='<div  class="col-sm-6 col-md-4 col-lg-3"><a href="#" class="thumbnail"><img style="width:100%;" src="'+arr[i].goods_thumb+'" /></a></div>'
+		}
+		$(".goods").html(h)
+	})
+	
+	$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(obj){
+		console.log(obj)
+		var arr = obj.data
+		var h = ""
+		for(var i = 0;i<arr.length;i++){
+			h+='<li><a href="goods_class.html?cat_id='+ arr[i].cat_id +'">'+arr[i].cat_name+'</a></li>'
+		}
+		$("#goods_class").html(h)
+	})
+	
+</script>

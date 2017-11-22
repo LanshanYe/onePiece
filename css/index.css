@@ -1,0 +1,29 @@
+*{
+	margin: 0;padding: 0;
+}
+li{
+	list-style: none;
+}
+body { padding-top: 70px; }
+.h3-buhuanhang{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.btn-shop{
+	float: right;
+	
+}
+.btn-shop:hover{
+	background: #ff4400;
+	border-color: #ff4400;
+}
+.goods_img img{
+	width: 250px;
+	height: 250px;
+	transition: all 1s;
+}
+.goods_img img:hover{
+	perspective: 300px;
+	box-shadow: 5px 5px 5px #ccc;
+}
