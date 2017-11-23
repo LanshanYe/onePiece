@@ -3,13 +3,116 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
-		
-	</head>
+		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
+	</head>			
 	<body>
+		
+		<div class="container-fluid">
+			<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container">
+			    
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="index.html">粮仓</a>
+			    </div>
+			
+			    
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品分类<span class="caret"></span></a>
+			          <ul class="dropdown-menu" id="goods_class">
+			            <li><a href="#">内容1</a></li>
+			            <li><a href="#">内容2</a></li>
+			            <li><a href="#">内容3</a></li>
+			           
+			          </ul>
+			        </li>
+
+			        
+			      </ul>
+			      <form class="navbar-form navbar-left">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="搜索内容">
+			        </div>
+			        <button type="button" class="btn btn-default">搜索</button>
+			      </form>
+			      <ul class="nav navbar-nav navbar-right">
+			      	<li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">购物车<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            
+			            <!--<li role="separator" class="divider"></li>-->
+			            <li><a href="#">还没有登录</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">没有内容</a></li>
+			          </ul>
+			        </li>
+			      	
+			        <li><a href="login.html">登录</a></li>
+			        <li><a href="register.html">注册</a></li>
+			      
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+
+		
+		<!--商品展示-->
+		<div class="container">
+			<h1>我的购物车</h1>
+			<div class="row">				
+					<div class="checkAll col-lg-1 col-md-1 col-sm-1 col-xs-6"><input type="checkbox" name="" id="choseALL"  /><span>全选</span></div>
+					<div class="message col-lg-4  col-md-4 col-sm-4 col-xs-6">商品信息</div>
+					<div class="price col-lg-2  col-md-2 col-sm-2 col-xs-2">单价（元）</div>
+					<div class="numb col-lg-2  col-md-2 col-sm-2 col-xs-2">数量</div>
+					<div class="sumb col-lg-2  col-md-2 col-sm-2 col-xs-2">金额（元）</div>
+					<div class="delate col-lg-1  col-md-1 col-sm-1 col-xs-1">操作</div>
+				
+				
+					<!--<ul class="shopBox">
+						<li class="checkAll"><input type="checkbox" name="" id="choseALL"  /><span>全选</span></li>
+						<li class="message">商品信息</li>
+						<li class="price">单价（元）</li>
+						<li class="numb">数量</li>
+						<li class="sumb">金额（元）</li>
+						<li class="delate">操作</li>
+					</ul>-->
+				
+				</div>
+			</div>
+		</div>	
 	</body>
 </html>
-<script src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script src="js/cart.js"></script>
+<script>
+	
+	$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(obj){
+		console.log(obj)
+		var arr = obj.data
+		var h = ""
+		for(var i = 0;i<arr.length;i++){
+			h+='<li><a href="goods_class.html?cat_id='+ arr[i].cat_id +'">'+arr[i].cat_name+'</a></li>'
+		}
+		$("#goods_class").html(h)
+	})
+	
+</script>
+
+
+
+
