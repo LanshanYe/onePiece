@@ -68,32 +68,75 @@
 			  </div>
 			</nav>
 		</div>
-
+	
+		<div id="tip">
+			<h4>您确定要删除此商品？</h4>
+			<button id="yes">确定</button>
+			<button id="no">取消</button>
+		</div>
 		
 		<!--商品展示-->
-		<div class="container">
+		<div class="container" id="shopBox">
 			<h1>我的购物车</h1>
 			<div class="row">				
-					<div class="checkAll col-lg-1 col-md-1 col-sm-1 col-xs-6"><input type="checkbox" name="" id="choseALL"  /><span>全选</span></div>
-					<div class="message col-lg-4  col-md-4 col-sm-4 col-xs-6">商品信息</div>
-					<div class="price col-lg-2  col-md-2 col-sm-2 col-xs-2">单价（元）</div>
-					<div class="numb col-lg-2  col-md-2 col-sm-2 col-xs-2">数量</div>
-					<div class="sumb col-lg-2  col-md-2 col-sm-2 col-xs-2">金额（元）</div>
-					<div class="delate col-lg-1  col-md-1 col-sm-1 col-xs-1">操作</div>
-				
-				
-					<!--<ul class="shopBox">
-						<li class="checkAll"><input type="checkbox" name="" id="choseALL"  /><span>全选</span></li>
-						<li class="message">商品信息</li>
-						<li class="price">单价（元）</li>
-						<li class="numb">数量</li>
-						<li class="sumb">金额（元）</li>
-						<li class="delate">操作</li>
-					</ul>-->
+				<div class="cAll col-lg-1 col-md-1 col-sm-1 col-xs-6">
+					<input type="checkbox" name="" id="choseAll"  />
+					<span>全选</span>
+				</div>
+				<div class="message col-lg-4  col-md-4 col-sm-4 col-xs-6">商品信息</div>
+				<div class="price col-lg-2  col-md-2 col-sm-2 col-xs-2">单价（元）</div>
+				<div class="numb col-lg-2  col-md-2 col-sm-2 col-xs-2">数量</div>
+				<div class="sumb col-lg-2  col-md-2 col-sm-2 col-xs-2">金额（元）</div>
+				<div class="delate1 col-lg-1  col-md-1 col-sm-1 col-xs-1">操作</div>
+		
+				<!--<div class="row newGoods">
+						<div class="checkAll col-lg-1 col-md-1 col-sm-1 col-xs-6">
+							<input type="checkbox" name="" class="checkbox"  />
+							<input type="hidden" class="goods_id" value=" '+obj2[i].goods_id+' } "/>
+						</div>
+						<div class="message col-lg-4  col-md-4 col-sm-4 col-xs-6">
+							<img src="'+obj2[i].goods_thumb+'" />
+							<span>'+obj2[i].goods_name+'</span>
+						</div>
+						<div class="price col-lg-2  col-md-2 col-sm-2 col-xs-2">'+obj2[i].goods_price+'</div>
+						<div class="numb col-lg-2  col-md-2 col-sm-2 col-xs-2">
+							<button>+</button>
+							<input type="text" value="'+obj2[i].goods_number+'"/>
+							<button>-</button>
+						</div>
+						<div class="sumb col-lg-2  col-md-2 col-sm-2 col-xs-2">'+obj2[i].goods_price*obj2[i].goods_number+'</div>
+						<div class="delate col-lg-1  col-md-1 col-sm-1 col-xs-1">删除</div>							
+					</div>-->
+					
 				
 				</div>
 			</div>
-		</div>	
+		</div>
+		
+		<!--底部结算-->
+		<div class="container downDiv">
+			<div class="row">
+				<div class="choseDelate col-lg-1 col-md-1 col-sm-2 col-xs-2">
+					选择删除
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-1 col-xs-1">
+					
+				</div>
+				<div class="pricesumb col-lg-5 col-md-5 col-sm-7 col-xs-7">
+					已选商品
+					<em id="number">0</em>
+					总价（不含运费）
+					<em id="sumber">￥0</em>
+				</div>
+				<button class="finish col-lg-1 col-md-1 col-sm-2 col-xs-2">
+					结算
+				</button>
+				<!--<button type="button" class="finish col-lg-1 col-md-1 col-sm-2 col-xs-2 btn btn-primary btn-lg active">
+					结算
+				</button>-->
+			</div>
+		</div>
+		
 	</body>
 </html>
 <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>

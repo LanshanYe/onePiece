@@ -1,94 +1,29 @@
-/*
 
-.shopShow-up{
-	font-family: "微软雅黑";
-	width: 1140px;
-	height: 40px;
-	border: 1px solid #C0C0C0;
-	color: #C0C0C0;
-	font-size: 17px;
-	line-height: 40px;
-	text-align: center;
-	padding: 0;
-}
-.shopShow-up>li{
-	float: left;
-	height: 100%;
-}
-.checkAll{
-	width: 100px;
-	margin-left: 10px;
-}
-.shopShow-up>li.checkAll span{
-	font-size: 17px;
-	line-height: 100%;
-	float: left;
-	margin: 12px 8px 0 0;
-}
-#choseALL{
-	width: 20px;
-	height: 16px;
-	margin: 13px 8px 0 0;
-	float: left;
-}
-.message{
-	width: 450px;
-	margin-left: 30px;
-}
 .message>img{
 	height: 80px;
-	margin-top: 10px;
+	margin-top: -30px;
 	float: left;
 }
-.price{
-	width: 100px;
-	margin: 0 20px;
-}
-.numb{
-	width: 140px;
-	margin: 0 20px;
-	text-align: center;
-
-}
-.sumb{
-	width: 100px;
-}
-.delate{
-	width: 128px;
-}
-
-.shopBox{
-	font-family: "微软雅黑";
-	width: 1140px;
-	height: 100px;
-	border: 1px solid #C0C0C0;
-	font-size: 16px;
-	padding: 0;
-	text-align: center;
-	
-}
-.shopBox>li{
+.message>span{
 	float: left;
-	height: 100%;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	padding: 30px 0;
-}
-.shopBox>li.message{
-	padding: 0;
-}
-.shopBox>li.checkAll{
-	padding-top: 17px;
-}
-.shopBox>li.message>span{
-	float: left;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	width: 300px;
-	height: 100%;
-	padding: 30px 0;
-	margin-left: 20px;
+	width: 65%;
+	height: 80px;
 	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.newGoods.row{
+	height: 100px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+.newGoods.row div{
+	float: left;
+	height: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 40px 10px;
 }
 .numb>button{
 	width: 20px;
@@ -98,11 +33,11 @@
 
 }
 .numb>input{
-	width: 30px;
+	width: 35px;
 	height: 20px;
 	font-size: 14px;
 	text-align: center;	
-}*/
+}
 
 .row{
 	height: 40px;
@@ -111,12 +46,74 @@
 
 }
 .row>div{
-	height: 40px;
+	height: 100%;
 	box-sizing: border-box;
 	padding: 10px;
 }
-.checkAll input{
+.cAll>input{
 	float: left;
 	width: 14px;
 	height: 14px;
 }
+.checkAll>input{
+	float: left;
+	width: 14px;
+	height: 14px;
+}
+.downDiv{
+	margin-top: 40px;
+
+}
+.downDiv>.row{
+	height: 80px;
+	font-size: 22px;
+	line-height: 58px;
+}
+.downDiv .choseDelate{
+	font-size: 18px;
+	cursor: pointer;
+	color: crimson;
+}
+.downDiv .choseDelate:hover{
+	background: silver;
+}
+.finish{
+	background: red;
+	color: white;
+	height: 100%;
+	border-color: red;
+	border-width: 5px;
+}
+.downDiv>.row>.pricesumb>em{
+	color: red;
+}
+
+.delate{
+	cursor: pointer;
+	color: crimson;
+}
+.delate:hover{
+	background: silver;
+}
+#tip{
+	width: 323px;
+    height: 150px;
+    border: 5px solid saddlebrown;
+    position: fixed;
+    left: 39%;
+    top: 38%;
+	z-index: 999;
+	background: white;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+	color: sienna;
+	display: none;
+}
+#tip>button{
+	margin-top: 41px;
+}
+#no{
+	margin-left: 91px;
+}
+
