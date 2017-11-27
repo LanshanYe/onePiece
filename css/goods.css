@@ -1,0 +1,27 @@
+.sDiv{
+	width: 180px;
+	height: 200px;
+	position: absolute;
+	border: 1px solid black;
+	display: none;
+	background: rgba(202,145,111,0.7);
+	
+}
+.bDiv{
+	width: 504px;
+	height: 560px;
+	position: absolute;
+	border: 1px solid black;
+	top: 0;
+	left: 361px;
+	display: none;
+	background: url(img/QQ图片20170816142058.png) no-repeat;
+	background-size: 612px 680px;
+	overflow: hidden;
+}
+#goods-left{
+	width: 360px;
+	height: 400px;
+	border: 1px solid black;
+	position: relative;
+}

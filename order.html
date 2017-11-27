@@ -4,6 +4,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>查询订单</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
 		<style type="text/css">
 			*{
 				padding: 0;
@@ -22,58 +28,78 @@
 		</style>
 	</head>
 	<body>
-		<h2>订单页</h2>
-		<div id="order-list">
 			
+		<div class="container-fluid">
+			<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container">
+			    
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="index.html">粮仓</a>
+			    </div>
+			
+			    
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商品分类<span class="caret"></span></a>
+			          <ul class="dropdown-menu" id="goods_class">
+			            <li><a href="#">内容1</a></li>
+			            <li><a href="#">内容2</a></li>
+			            <li><a href="#">内容3</a></li>
+			           
+			          </ul>
+			        </li>
+
+			        
+			      </ul>
+			      <form class="navbar-form navbar-left">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="搜索内容">
+			        </div>
+			        <button type="button" class="btn btn-default">搜索</button>
+			      </form>
+			      <ul class="nav navbar-nav navbar-right">
+			      	<li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">购物车<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            
+			            <!--<li role="separator" class="divider"></li>-->
+			            <li><a href="#">还没有登录</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">没有内容</a></li>
+			          </ul>
+			        </li>
+			      	
+			        <li><a href="login.html">登录</a></li>
+			        <li><a href="register.html">注册</a></li>
+			      
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
 		</div>
 		
 		
-		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			//查询订单详情
-			$.ajax({
-				"url":"http://h6.duchengjiu.top/shop/api_order.php?token="+localStorage.token,
-					"type":"GET",
-					"dataType": "json",
-					"success": function(response){
-						
-						if(response.code === 0){
-							console.log(response);
-							
-							var html = '';
-							//外层for循环，循环的是订单的长度
-							for(var i=0;i<response.data.length;i++){
-								var obj = response.data[i]; //每条的订单信息
-								
-								html += '<div class="order-item">';
-								html += '<div class="order-item-header">订单号：' + obj.order_id +'</div>';
-								
-								//里层for循环
-								for(var j=0;j<obj.goods_list.length;j++){
-									
-									var goods = obj.goods_list[j];  //商品列表
-									
-									//商品金额计算
-									goods.subtotal = goods.goods_number * goods.goods_price;
-									
-									html += '<div data-id="' +goods.goods_id
-										 + '"><img src="'+ goods.goods_thumb 
-										 +'">商品名称：' + goods.goods_name 
-										 + '商品数量：' + goods.goods_number 
-										 + '商品单价：' + goods.goods_price 
-										 + '商品金额：' + goods.subtotal 
-										 + '</div>';
-								}
-								
-								html += '</div>'
-							}
-							
-							$("#order-list").html(html);
-						}
-					}
-			});
+	
+		<div id="order-list">
+			
+		</div>
+		<div class="bottom-address">
+			
+		</div>
+		
+		<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/order.js" type="text/javascript" charset="utf-8"></script>
+		
 			
 			
-		</script>		
+	
 	</body>
 </html>

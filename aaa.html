@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#oDiv{
+				width: 360px;
+				height: 400px;
+				border: 1px solid black;
+				margin: 70px;
+				position: relative;
+			}
+			.sDiv{
+				width: 180px;
+				height: 200px;
+				position: absolute;
+				border: 1px solid black;
+				display: none;
+				background: rgba(202,145,111,0.7);
+				
+			}
+			.bDiv{
+				width: 504px;
+				height: 560px;
+				position: absolute;
+				border: 1px solid black;
+				top: 0;
+				left: 361px;
+				display: none;
+				background: url(img/QQ图片20170816142058.png) no-repeat;
+				background-size: 612px 680px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="oDiv">
+		<img class="iii" src="img/QQ图片20170816142058.png"/>
+		<div id="sDiv" class="sDiv">
+			
+		</div>
+		<div id="bDiv" class="bDiv">
+			
+		</div>
+	</div>	
+	</body>
+	<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var sDiv = document.getElementById("sDiv")
+			var bDiv = document.getElementById("bDiv")
+			var oDiv = document.getElementById("oDiv")
+			var oDivLeft = parseInt(oDiv.offsetLeft)
+			var oDivTop = parseInt(oDiv.offsetTop)
+			var oDivWidth = parseInt(oDiv.offsetWidth)
+			var oDivHeight = parseInt(oDiv.offsetHeight)
+		
+			oDiv.onmouseenter = function(){
+				sDiv.style.display = "block"
+				bDiv.style.display = "block"
+				var sDivWidth = parseInt(sDiv.offsetWidth)
+				var sDivHeight = parseInt(sDiv.offsetHeight)
+				oDiv.onmousemove= function(e){
+					if (e.clientX-oDivLeft-sDivWidth/2<0) {
+						sDiv.style.left = 0 +"px"
+						bDiv.style.backgroundPositionX = 0 +"px" 
+					}else if (e.clientX-oDivLeft-sDivWidth/2>oDivWidth-sDivWidth) {
+						sDiv.style.left = oDivWidth-sDivWidth +"px"
+						bDiv.style.backgroundPositionX = -(oDivWidth-sDivWidth)*1.7+"px" 
+					}else{
+						sDiv.style.left = e.clientX-oDivLeft-sDivWidth/2+"px"
+						bDiv.style.backgroundPositionX = -(e.clientX-oDivLeft-sDivWidth/2) * 1.7 +"px"
+					}
+					
+					if (e.clientY-oDivTop-sDivHeight/2<0) {
+						sDiv.style.top = 0 +"px"
+						bDiv.style.backgroundPositionY = 0 +"px" 
+					}else if(e.clientY-oDivTop-sDivHeight/2>oDivHeight-sDivHeight){
+						sDiv.style.top = oDivHeight-sDivHeight +"px"
+						bDiv.style.backgroundPositionY = -(oDivHeight-sDivHeight)*1.7 +"px" 
+					}else{
+						sDiv.style.top = e.clientY-oDivTop-sDivHeight/2+"px"
+						bDiv.style.backgroundPositionY =  -(e.clientY-oDivTop-sDivHeight/2) * 1.7+ "px"
+					}
+						
+					/*sDiv.style.left = e.clientX-oDivLeft-sDivWidth/2+"px"
+					sDiv.style.top = e.clientY-oDivTop-sDivHeight/2+"px"*/
+					
+					
+				}
+				
+				
+					oDiv.onmouseleave = function(){
+						sDiv.style.display = "none"
+						bDiv.style.display = "none"
+					}
+			
+			}
+			
+		}
+	</script>
+</html>

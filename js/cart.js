@@ -10,6 +10,7 @@ $.post("http://h6.duchengjiu.top/shop/api_user.php",
 		$.ajax({
 			type:"get",
 			url:url,
+			//true为异步，false为同步
 			async:true,
 			success:function(respones){
 				
